@@ -1,4 +1,4 @@
-package com.Nexus;
+package com.nexus;
 
 import org.springframework.boot.SpringApplication;
 
