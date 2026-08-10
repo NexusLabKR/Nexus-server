@@ -1,15 +1,34 @@
 package com.nexus.global.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
-// <T>는 응답으로 어떤 데이터가 들어올지 몰라 나중에 결정하겠다는 뜻
+// T는 어떤 타입이든 들어갈 수 있는 자리 (아직 정해지지 않음)
 public class ApiResponse<T> {
 
-    private boolean success;
-    private T data;
-    private String message;
+    private final boolean success;
+    private final T data;
+    private final String message;
 
+    private ApiResponse(boolean success, T data, String message) {
+        this.success = success;
+        this.data = data;
+        this.message = message;
+    }
+
+    public static <T> ApiResponse<T> success(T data) {
+        return new ApiResponse<>(true, data, null);
+    }
+
+    public static <T> ApiResponse<T> success(T data, String message) {
+        return new ApiResponse<>(true, data, message);
+    }
+
+    public static ApiResponse<Void> success() {
+        return new ApiResponse<>(true, null, null);
+    }
+
+    public static ApiResponse<Void> failure(String message) {
+        return new ApiResponse<>(false, null, message);
+    }
 }
