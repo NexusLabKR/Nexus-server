@@ -13,7 +13,11 @@ public class GlobalExceptionHandler {
 
         ErrorCode errorCode = e.getErrorCode();
 
+        ApiResponse<Void> response = ApiResponse.failure(errorCode.getMessage());
 
-
+        return ResponseEntity
+                .status(errorCode.getStatus())
+                .body(response);
     }
+
 }
