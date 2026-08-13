@@ -1,8 +1,11 @@
 spring:
+  application:
+    name: orbit
+
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://localhost:3307/orbit
+    username: orbit_user
+    password: orbit_dev_pw
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
