@@ -2,9 +2,9 @@ services:
   mysql:
     image: 'mysql:latest'
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+      - 'MYSQL_DATABASE=orbit'
+      - 'MYSQL_USER=orbit_user'
+      - 'MYSQL_PASSWORD=orbit_dev_pw'
+      - 'MYSQL_ROOT_PASSWORD=orbit_root_pw'
     ports:
-      - '3306'
+      - '3307:3306'
